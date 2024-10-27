@@ -1,22 +1,23 @@
-import * as fs from "fs"
-
-export async function getHummingbotIssues() {
-  const issuesData = JSON.parse(
-    fs.readFileSync("./src/app/data/hummingbot-issues.json", "utf-8")
+export async function getIssuesForRepo(
+  repo: string,
+  page: number
+): Promise<{
+  totalPages: number
+  issuesData: any[]
+}> {
+  const response = await fetch(
+    `https://api.github.com/repos/${repo}/issues?per_page=30&page=${page}`
   )
-  return issuesData
-}
+  const linkHeader = response.headers.get("link")
+  let totalPages = page
+  if (linkHeader) {
+    const links = linkHeader.split(",")
+    const lastLink = links.find((link) => link.includes('rel="last"'))
+    if (lastLink) {
+      totalPages = parseInt(lastLink.split("&page=")[1].split(">")[0])
+    }
+  }
 
-export async function getJsonIssues() {
-  const issuesData = JSON.parse(
-    fs.readFileSync("./src/app/data/json-issues.json", "utf-8")
-  )
-  return issuesData
-}
-
-export async function getCocosIssues() {
-  const issuesData = JSON.parse(
-    fs.readFileSync("./src/app/data/cocos-issues.json", "utf-8")
-  )
-  return issuesData
+  const issuesData = await response.json()
+  return { totalPages, issuesData }
 }
