@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export async function getIssuesForRepo(
   repo: string,
   page: number

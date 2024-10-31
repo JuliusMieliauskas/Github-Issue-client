@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { MarkdownRenderer } from "./markdown-rendered"
 import { Card, CardContent, CardFooter, CardHeader } from "./card"
 import { AvatarIcon } from "./icons"

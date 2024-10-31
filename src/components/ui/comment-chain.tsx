@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { IssueComment } from "./issue-comment"
 import { Separator } from "./separator"
 

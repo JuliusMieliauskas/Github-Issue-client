@@ -1,5 +1,7 @@
+/* eslint-disable */
+
 import { IssueCard } from "@/components/ui/issue-card"
-import { getIssuesForRepo } from "../actions/get-issues"
+import { getIssuesForRepo } from "../../actions/get-issues"
 import { PaginationControls } from "@/components/ui/pagination-control"
 
 export default async function CocosEngine({

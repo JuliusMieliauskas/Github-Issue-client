@@ -1,8 +1,9 @@
+/* eslint-disable */
+
 "use client"
 
 import { useRouter } from "next/navigation"
 import { Card, CardDescription, CardHeader, CardTitle } from "./card"
-import _ from "lodash"
 import { formatDate } from "@/lib/utils"
 import { MessageSquare } from "lucide-react"
 

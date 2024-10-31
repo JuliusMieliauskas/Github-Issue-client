@@ -74,49 +74,43 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   markdownContent,
 }) => {
   const components: Components = {
-    h1: ({ node, ...props }) => (
+    h1: ({ ...props }) => (
       <CustomHeading level={1} {...props}>
         {props.children}
       </CustomHeading>
     ),
-    h2: ({ node, ...props }) => (
+    h2: ({ ...props }) => (
       <CustomHeading level={2} {...props}>
         {props.children}
       </CustomHeading>
     ),
-    h3: ({ node, ...props }) => (
+    h3: ({ ...props }) => (
       <CustomHeading level={3} {...props}>
         {props.children}
       </CustomHeading>
     ),
-    p: ({ node, ...props }) => (
+    p: ({ ...props }) => (
       <CustomParagraph {...props}>{props.children}</CustomParagraph>
     ),
-    a: ({ node, ...props }) => (
+    a: ({ ...props }) => (
       <CustomLink href={props.href as string} {...props}>
         {props.children}
       </CustomLink>
     ),
-    ul: ({ node, ...props }) => (
-      <CustomList {...props}>{props.children}</CustomList>
-    ),
-    ol: ({ node, ...props }) => (
+    ul: ({ ...props }) => <CustomList {...props}>{props.children}</CustomList>,
+    ol: ({ ...props }) => (
       <CustomList ordered {...props}>
         {props.children}
       </CustomList>
     ),
-    blockquote: ({ node, ...props }) => (
+    blockquote: ({ ...props }) => (
       <CustomBlockquote {...props}>{props.children}</CustomBlockquote>
     ),
-    code: ({ node, ...props }) => (
+    code: ({ ...props }) => (
       <CustomCode {...props}>{props.children}</CustomCode>
     ),
-    div: ({ node, ...props }) => (
-      <CustomDiv {...props}>{props.children}</CustomDiv>
-    ),
-    pre: ({ node, ...props }) => (
-      <CustomPre {...props}>{props.children}</CustomPre>
-    ),
+    div: ({ ...props }) => <CustomDiv {...props}>{props.children}</CustomDiv>,
+    pre: ({ ...props }) => <CustomPre {...props}>{props.children}</CustomPre>,
   }
 
   return (

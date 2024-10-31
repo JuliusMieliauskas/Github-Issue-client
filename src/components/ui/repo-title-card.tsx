@@ -11,7 +11,9 @@ export function RepoTitleCard(props: {
   return (
     <Card
       className="w-[250px]"
-      onClick={() => router.push("/" + props.repoName.toLowerCase())}
+      onClick={() =>
+        router.push("/" + props.repoName.toLowerCase() + "/issues")
+      }
     >
       <CardHeader className="flex items-center">
         <CardTitle>{props.repoName}</CardTitle>
