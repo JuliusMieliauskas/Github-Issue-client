@@ -26,6 +26,7 @@ export default async function CocosEngine({
               createdAt={new Date(issue.created_at)}
               commentsCount={issue.comments}
               labels={issue.labels}
+              redirectUrl={`/cocos-engine/issues/${issue.number}`}
             />
           )
         })}

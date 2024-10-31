@@ -26,6 +26,7 @@ export default async function Json({
               createdAt={new Date(issue.created_at)}
               commentsCount={issue.comments}
               labels={issue.labels}
+              redirectUrl={`/json/issues/${issue.number}`}
             />
           )
         })}

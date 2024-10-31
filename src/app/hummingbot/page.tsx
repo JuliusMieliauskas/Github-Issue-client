@@ -13,6 +13,7 @@ export default async function Hummingbot({
     "hummingbot/hummingbot",
     currentPage
   )
+
   return (
     <div className="w-full mt-8 flex flex-col items-center">
       <h1 className="text-3xl font-bold">Hummingbot</h1>
@@ -26,6 +27,7 @@ export default async function Hummingbot({
               createdAt={new Date(issue.created_at)}
               commentsCount={issue.comments}
               labels={issue.labels}
+              redirectUrl={`/hummingbot/issues/${issue.number}`}
             />
           )
         })}

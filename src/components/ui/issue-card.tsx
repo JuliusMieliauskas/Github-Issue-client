@@ -12,10 +12,15 @@ export function IssueCard(props: {
   createdAt: Date
   commentsCount: number
   labels: any[]
+  redirectUrl: string
 }) {
   const router = useRouter()
   return (
-    <Card className="">
+    <Card
+      onClick={() => {
+        router.push(props.redirectUrl)
+      }}
+    >
       <CardHeader className="flex justify-start">
         <CardTitle className="flex justify-between">
           <div>{props.issueName}</div>
