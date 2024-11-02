@@ -19,6 +19,7 @@ export default async function Hummingbot({
   return (
     <div className="w-full mt-8 flex flex-col items-center">
       <h1 className="text-3xl font-bold">Hummingbot</h1>
+      <div className="text-sm">Choose issue to inspect</div>
       <div className="flex flex-col gap-y-4 mt-8 w-2/3">
         {issuesData.map((issue: any) => {
           return (
